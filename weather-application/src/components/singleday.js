@@ -2,13 +2,14 @@
 //     console.log(data)
 //     return(
 //         <section className="container">
-//         {/* <div className="location">
+//         <div className="location">
 //           <h1>{data.name}</h1>
-//         </div> */}
+//         </div>
 //         <div className="date">
 //           {typeof data.main != "undefined" ? (
-//             <h2>Date : {new Date().toLocaleString() + ""}</h2>
-//           ) : null}
+//             <h2>Today</h2>
+//           ) : // <h2>Date : {new Date().toLocaleString() + ""}</h2>
+//           null}
 //         </div>
 //         <div className="min">
 //           {data.main ? <p>Min : {data.main.temp_min.toFixed()}c°</p> : null}
@@ -26,9 +27,10 @@
 //           ) : null}
 //         </div>
 //         <div className="humidity">
-//         {data.main ? (
-//             <p>Feels like : {data.main.humidity.toFixed()}%</p>
-//           ) : null} </div>
+//           {data.main ? (
+//             <p>Humidity : {data.main.humidity.toFixed()}%</p>
+//           ) : null}{" "}
+//         </div>
 //       </section>
 //     )
 // }
