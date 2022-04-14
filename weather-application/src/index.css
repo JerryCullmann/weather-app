@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app{
+  width:100%;
+  height:100vh;
+  position:relative;
+  background-color: rgba(0,0,0,0.4);
+  color:#FFF;
+}
+
+.app:before{
+  content:'';
+  background: url('./assets/meteoo.webp') no-repeat center center/cover;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* .container{
+  width:15rem;
+  height:20rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border:black;
+  border-radius:25px;
+  color:purple;
+  align-items:center;
+  text-align:center;
+  background-color:rgba(0,0,0,0.4);
+} */
