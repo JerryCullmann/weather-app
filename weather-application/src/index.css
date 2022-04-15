@@ -52,3 +52,12 @@ code {
   text-align:center;
   background-color:rgba(0,0,0,0.4);
 }
+.containers{
+  display:flex;
+  flex-direction:column;
+  background-color:rgba(0,0,0,0.4);
+  width:10rem;
+  border-radius:25px;
+  align-items:center;
+  text-align:center;
+}

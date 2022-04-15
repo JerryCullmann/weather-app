@@ -102,12 +102,16 @@ function One() {
       )}
     
       <div className="forecasts">
-        {typeof data.main != "undefined" ? (
+        {/* {typeof data.main != "undefined" ? (
           <Fivedaysscript dataFive={dataFive} />
         ) : (
           
           <></>
-        )}
+        )} */}
+
+        {dataFive &&
+          <Fivedaysscript dataFive={dataFive} />
+        }
       </div>
     
     </>
