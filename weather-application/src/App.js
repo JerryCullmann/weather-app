@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
-import Fivedaysscript from "./components/five-days-script";
+import FiveDaysScript from "./components/five-days-script";
 import { fetchData, fetchDataFive } from "./components/api";
 
 function App() {
@@ -19,6 +18,10 @@ function One() {
   const [dataFive, setDataFive] = useState("");
   const [status, setStatus] = useState([]);
 
+
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
@@ -28,20 +31,9 @@ function One() {
     }
   };
 
-  // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=1bb08c58067521a088b6b725c7d7ae20`;
-  // const searchLocation = (event) => {
-  //   if (event.key === "Enter") {
-  //     axios.get(url).then((response) => {
-  //       setData(response.data);
-  //     });
-  //     setLocation("");
-  //   }
-  // };
-
   useEffect(() => {
     const apiCall = async () => {
       setData(await fetchData(location));
-      console.log(data)
       setDataFive(await fetchDataFive(location));
 
     };
@@ -53,14 +45,16 @@ function One() {
 
   return (
     <>
-      <div className="Search">
+      <div className="search">
         <input
+          className="search__bar"
           type="text"
           onChange={statusHandler}
           onKeyPress={statusHandlerKey}
           placeholder="Enter location"
         />
         <input
+          className="search__btn"
           type="submit"
           value="Search"
           onClick={() => setLocation(status)}
@@ -74,8 +68,9 @@ function One() {
           </div>
           <div className="date">
             {typeof data.main != "undefined" ? (
-              <h2>Today</h2>
-            ) : // <h2>Date : {new Date().toLocaleString() + ""}</h2>
+              <h2>{date}</h2>
+            ) : 
+            
             null}
           </div>
           <div className="min">
@@ -83,9 +78,6 @@ function One() {
           </div>
           <div className="max">
             {data.main ? <p>Max : {data.main.temp_max.toFixed()}c°</p> : null}
-          </div>
-          <div className="description">
-            {data.weather ? <p>{data.weather[0].description}</p> : null}
           </div>
 
           <div className="feels">
@@ -98,19 +90,15 @@ function One() {
               <p>Humidity : {data.main.humidity.toFixed()}%</p>
             ) : null}{" "}
           </div>
+          <div className="description">
+            {data.weather ? <p>Overall : {data.weather[0].description}</p> : null}
+          </div>
         </section>
       )}
     
       <div className="forecasts">
-        {/* {typeof data.main != "undefined" ? (
-          <Fivedaysscript dataFive={dataFive} />
-        ) : (
-          
-          <></>
-        )} */}
-
         {dataFive &&
-          <Fivedaysscript dataFive={dataFive} />
+          <FiveDaysScript dataFive={dataFive} />
         }
       </div>
     
